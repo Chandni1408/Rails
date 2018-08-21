@@ -1,0 +1,17 @@
+<% provide(:title, 'Edit Your Subject') %>
+<%= yield :title %>
+<div>
+	<%# form_for(@subject) do |s|%>
+	<%#form_with(@subject, url: subjects_path(@subject)) do |s|%>
+	<%= form_with(model: @subject, local: true) do |s| %>
+	<%#form_with scope: :subject, local: true do |s| %>
+		<%= s.label :name%>
+		<%= s.text_field :name%><br>
+		<%= s.label :position%>
+		<%= s.text_field :position%><br>
+		<%= s.label :visible%>
+		<%= s.text_field :visible%><br>
+		<%= s.submit%>
+	<%end%>
+	<%= link_to 'Back', subjects_path %>
+</div>

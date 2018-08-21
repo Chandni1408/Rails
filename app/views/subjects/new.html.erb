@@ -1,0 +1,25 @@
+<% provide(:title, 'Create New Subject') %>
+<%= yield :title %>
+<div>
+	<%# form_for(@subject) do |s|%>
+	<%= form_for(@subject, url: subjects_path(@subject)) do |s|%>
+
+	<%#form_with scope: :subject, local: true do |s| %>
+		<div>
+		<%= s.label :name%>
+		<%= s.text_field :name%><br>
+		</div>
+		<div>
+		<%= s.label :position%>
+		<%= s.text_field :position%><br>
+		</div>
+		<div>
+		<%= s.label :visible%>
+		<%= s.text_field :visible%><br>
+		</div>
+		<div>
+		<%= s.submit%>
+		</div>
+	<%end%>
+	<%= link_to 'Back', subjects_path %>
+</div>

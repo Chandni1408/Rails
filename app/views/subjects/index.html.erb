@@ -1,0 +1,29 @@
+<div>
+
+<%= link_to("Add new Subject","subjects/new")%>
+
+<table border="1">
+	<header>
+		<th>#</th>
+		<th>Name</th>
+		<th>Visible</th>
+		<th>Action</th>
+	</header>
+	<% @subject.each do |s|%>
+	<tr>
+		<td><%= s.position%></td>
+		<td><%= s.name%></td>
+		<td><%= s.visible%></td>
+		<td>
+			<%# link_to("Show","action show")%>
+			<%= link_to("Show","subjects/#{s.id}") %>
+			<%= link_to("Edit","subjects/#{s.id}/edit")%>
+			<%#link_to("Delete","subjects/delete",)%>
+			<%= link_to("Delete","subjects/#{s.id}",
+              method: :delete,
+              data: { confirm: 'Are you sure?' })%>
+		</td>
+	</tr>
+	<% end%>
+</table>
+</div>
