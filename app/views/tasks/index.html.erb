@@ -1,0 +1,15 @@
+<h1>Task</h1>
+
+<ul id=tasks>
+  <% @task.each do |t| %>
+    <li><%= t.name %>
+        <%= t.desc %> <%= link_to "Delete", t, remote: true, method: :delete, data: { confirm: "Are you sure you want to delete '#{t.name}'?" } %>
+    </li>
+  <% end %>
+</ul>
+
+<%= form_with model: Task.new, data: {'js-task-form' => true} do |form| %>
+  Name <%= form.text_field :name %><br>
+  Desc <%= form.text_field :desc %><br>
+  <%= form.submit %>
+<% end %>
