@@ -1,0 +1,16 @@
+<h2>show</h2>
+<p>
+	<%= @artical.title%>
+</p>
+<p>
+	<%= @artical.text%>
+</p>
+
+<h2>Comments</h2>
+<%= render @artical.comments %>
+
+<h2>Add Comments</h2>
+<%= render 'comments/form' %>
+
+<%= link_to 'Edit', edit_artical_path(@artical) %> |
+<%= link_to 'Back', articals_path %>

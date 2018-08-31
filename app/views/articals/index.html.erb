@@ -1,0 +1,21 @@
+<h3><%= link_to 'New', new_artical_path %></h3>
+<h2>Listing all articals</h2>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+ 
+  <% @articals.each do |artical| %>
+    <tr>
+      <td><%= artical.title %></td>
+      <td><%= artical.text %></td>
+      <td><%= link_to 'Show', artical_path(artical) %>
+      	  <%= link_to 'Edit', edit_artical_path(artical) %>
+      	  <%= link_to 'Delete', artical_path(artical),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+      </td>
+    </tr>
+  <% end %>
+</table>
