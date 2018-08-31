@@ -1,0 +1,65 @@
+
+<div class="container-fluid">
+  <div class="row up">
+    <div class="col-md-12">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">
+    	<%= link_to 'Designation', designation_index_path%>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Edit</li>
+  </ol>
+</nav>
+</div></div>
+  </div>
+<div class="row up">
+  <div class="col-md-12">
+    <div class="container-fluid">
+      <div class="alert alert-secondary" role="alert">
+  Edit Designation 
+</div>
+<div>
+	<%# form_for(@subject) do |s|%>
+	 <%= form_for(@designation,url: designation_path) do |s|%>
+  <%#form_with(model: @designation,local: true,html: { style: "display:inline;" }) do |s| %>
+    <% if @designation.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@designation.errors.count, "error") %> prohibited
+            this designation from being saved:
+          </h2>
+          <ul>
+            <% @designation.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+  <%#form_with scope: :subject, local: true do |s| %>
+    <div class="field">
+      <%= s.label "Department" %>
+      <%= s.collection_select(:department_id, Department.all, :id, :departmentName, { :prompt => 'Select a Department'}, { class: 'form-group mx-sm-3' }) %>
+    </div>
+    <div class="form-row">
+    <div class="form-group mx-sm-3">
+    <%= s.label :name %>
+    <%= s.text_field :designationName%><br>
+    </div></div>
+
+    <div class="form-row">
+    <div class="form-group mx-sm-3">
+    <%= s.label :Remark %>
+    <%= s.text_field :remark%><br>
+    </div></div>
+
+    <div>
+    <%= s.hidden_field :login_master_id, :value => session[:emp_id] %><br>
+    </div>
+    <div>
+    <%= s.submit%>
+    </div>
+  <%end%>
+	<%= link_to 'Back', designation_index_path %>
+</div>

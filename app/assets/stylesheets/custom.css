@@ -1,0 +1,21 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+.harsh
+{
+	margin-top: 2%;
+	border: 2px solid;
+	margin-left: 25%
+}
+.chandni
+{
+	text-align: center;
+}
+
+.up
+{
+	margin-top: 15px;
+}
+.pad
+{
+	padding
+}

@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: login_activities
+#
+#  id              :bigint(8)        not null, primary key
+#  login           :datetime
+#  logout          :datetime
+#  ipAddress       :string
+#  login_master_id :bigint(8)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  login: 2018-08-30 10:33:48
+  logout: 2018-08-30 10:33:48
+  ipAddress: MyString
+  login_master: one
+
+two:
+  login: 2018-08-30 10:33:48
+  logout: 2018-08-30 10:33:48
+  ipAddress: MyString
+  login_master: two

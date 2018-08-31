@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="row up">
+    <div class="col-md-12">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Department</li>
+  </ol>
+</nav>
+</div></div>
+  </div>
+<div class="row up">
+  <div class="col-md-12">
+    <div class="container-fluid">
+      <div class="alert alert-secondary" role="alert">
+  Department List 
+</div>
+<div class="table-responsive-sm">
+
+<table class="table table-bordered table-hover chandni">
+	<tr>
+	  <%= link_to 'Add new Department', new_department_path,:class => "btn" %>
+    </tr>
+	<caption>List of Department</caption>
+	<header>
+		<th>#</th>
+		<th>Name</th>
+		<th>Remark</th>
+		<th>Action</th>
+	</header>
+	<%@id = 1%>
+	<% @department.each do |s|%>
+	<tr>
+		<td><%= @id%></td>
+		<td><%= s.departmentName%></td>
+		<td><%= s.remark%></td>
+		<td>
+			<%# link_to("Show","action show")%>
+			<%= link_to("Show",department_path(s)) %>
+			<%= link_to("Edit",edit_department_path(s))%>
+			<%#link_to("Delete","subjects/delete",)%>
+			 <% if depended_dept(s) ==  nil %>
+			<%= link_to("Delete",department_path(s),
+              method: :delete,
+              data: { confirm: 'Are you sure?' })%>
+              <% end %>
+		</td>
+	</tr>
+	<%@id+=1%>
+	<% end%>
+</table>
+</div>
+  <%= will_paginate @department %>

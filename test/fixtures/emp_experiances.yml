@@ -1,0 +1,47 @@
+# == Schema Information
+#
+# Table name: emp_experiances
+#
+#  id                  :bigint(8)        not null, primary key
+#  organizationName    :string
+#  organizationAddress :string
+#  salary              :float
+#  login_master_id     :bigint(8)
+#  emp_master_id       :bigint(8)
+#  department_id       :bigint(8)
+#  designation_id      :bigint(8)
+#  joiningDate         :date
+#  leavingDate         :date
+#  leavingReason       :string
+#  active              :integer
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  organizationName: MyString
+  organizationAddress: MyString
+  salary: 1.5
+  login_master: one
+  emp_master: one
+  department: one
+  designation: one
+  joiningDate: 2018-08-27
+  leavingDate: 2018-08-27
+  leavingReason: MyString
+  active: 1
+
+two:
+  organizationName: MyString
+  organizationAddress: MyString
+  salary: 1.5
+  login_master: two
+  emp_master: two
+  department: two
+  designation: two
+  joiningDate: 2018-08-27
+  leavingDate: 2018-08-27
+  leavingReason: MyString
+  active: 1
