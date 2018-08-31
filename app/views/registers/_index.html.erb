@@ -1,0 +1,12 @@
+<% @registers.each do |register| %>
+  <tr>
+  	  <tr id='<%= "product-#{register.id}" %>'>
+
+    <td><%= register.name %></td>
+    <td><%= number_to_currency register.price %></td>
+    <td><%= link_to 'Show', register_path(register), remote: true,class: "btn btn-default" %></td>
+    <td><%= link_to 'Edit', edit_register_path(register), remote: true, class: "btn btn-default" %></td>
+    <td><%= link_to 'Delete',register_delete_path(register),remote: true, class: "btn btn-danger"%>
+    </td>
+    </tr>
+  <% end %>

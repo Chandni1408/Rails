@@ -1,0 +1,19 @@
+<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h1><%= @register.name %></h1>
+			<p>
+				<strong>Name:</strong>
+				<%= @register.name %>
+			</p>
+			<p>
+				<strong>Price:</strong>
+				<%= @register.price %>
+			</p>
+			<div class="modal-footer">
+				<%= link_to 'Edit', edit_register_path(@register),remote: true,class: "btn btn-primary" %> 
+				<%= link_to 'Back', registers_path,class: "btn btn-default" %>
+			</div>
+		</div>
+	</div>
+</div>
