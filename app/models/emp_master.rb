@@ -18,4 +18,16 @@
 
 class EmpMaster < ApplicationRecord
   belongs_to :login_master
+  has_one :emp_address
+  has_one :emp_family 
+  has_one :emp_academic_profile
+  accepts_nested_attributes_for :emp_address
+  accepts_nested_attributes_for :emp_family
+  accepts_nested_attributes_for :emp_academic_profile
+  enum empGender: { Male: 0, Female: 1}
+  
+  
+
+  
+
 end

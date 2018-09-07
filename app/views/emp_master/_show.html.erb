@@ -1,0 +1,115 @@
+<div class="container-fluid">
+  <div class="row up">
+    <div class="col-md-12">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">
+    	<%= link_to 'Employee', emp_master_index_path%>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Show</li>
+  </ol>
+</nav>
+</div></div>
+  </div>
+<div class="row up">
+  <div class="col-md-12">
+    <div class="container-fluid">
+      <div class="alert alert-secondary" role="alert">
+   Employee Basic detail
+</div>
+<table class="table table-bordered table-hover chandni">
+  <header>
+    <th>Employee Name</th>
+    <th>Gender </th>
+    <th>Date of Birth</th>
+    <th>Contact Number</th>
+    <th>Email</th>
+    <th>Join Date </th>
+    <th>Leavind Date</th>
+  </header>
+  <tbody>
+    <tr>
+      <td><%= @emp_master.empName %></td>
+      <td><%= @emp_master.empGender %></td>
+      <td><%= @emp_master.dob %></td>
+      <td><%= @emp_master.contactNumber %></td>
+      <td><%= @emp_master.email %></td>
+      <td><%= @emp_master.joinDate %></td>
+      <td><%= @emp_master.leavindDate %></td>
+    </tr>
+  </tbody>
+</table>
+<div class="alert alert-secondary" role="alert">
+   Employee Family Detail
+</div>
+<table class="table table-bordered table-hover chandni">
+  <header>
+    <th>Family Name</th>
+    <th>Relation </th>
+    <th>Date of Birth</th>
+  </header>
+  <%if @emp_master.emp_family != nil%>
+  <tbody>
+    <tr>
+      <td><%= @emp_master.emp_family.name %></td>
+      <td><%= @emp_master.emp_family.relation %></td>
+      <td><%= @emp_master.emp_family.dob %></td>
+    </tr>
+  </tbody>
+  <%else%>
+  <tbody>
+    <tr>
+      <td colspan="3">No record Found</td>
+    </tr>
+  </tbody>
+  <%end%>
+</table>
+
+<div class="alert alert-secondary" role="alert">
+   Employee Address Detail
+</div>
+<table class="table table-bordered table-hover chandni">
+  <header>
+    <th>Current Address</th>
+    <th>landmark </th>
+    <th>city</th>
+    <th>District</th>
+    <th>State</th>
+    <th>Permenent Address </th>
+    <th>Permenent Landmark</th>
+    <th>Permenent city</th>
+    <th>Permenent District</th>
+    <th>Permenent State</th>
+  </header>
+  <%if @emp_master.emp_address != nil%>
+  <tbody>
+    <tr>
+      <td><%= @emp_master.emp_address.currentAddress %></td>
+      <td><%= @emp_master.emp_address.landmark %></td>
+      <td><%= @emp_master.emp_address.city %></td>
+      <td><%= @emp_master.emp_address.district %></td>
+      <td><%= @emp_master.emp_address.state %></td>
+      <td><%= @emp_master.emp_address.perAddress %></td>
+      <td><%= @emp_master.emp_address.pLandmark %></td>
+      <td><%= @emp_master.emp_address.pcity %></td>
+      <td><%= @emp_master.emp_address.pdistrict %></td>
+      <td><%= @emp_master.emp_address.pState %></td>
+    </tr>
+  </tbody>
+  <%else%>
+  <tbody>
+    <tr>
+      <td colspan="10">No record Found</td>
+    </tr>
+  </tbody>
+  <%end%>
+
+</table>
+
+<p>
+	<%= link_to 'Back', emp_master_index_path %>
+</p>
+<div>
+	

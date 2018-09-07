@@ -21,22 +21,10 @@
   Add New Designation 
 </div>
 <div>
-	 <%= form_for(@designation, url: designation_index_path) do |s|%>
-  <%#form_with(model: @designation,local: true,html: { style: "display:inline;" }) do |s| %>
-    <% if @designation.errors.any? %>
-        <div id="error_explanation">
-          <h2>
-            <%= pluralize(@designation.errors.count, "error") %> prohibited
-            this designation from being saved:
-          </h2>
-          <ul>
-            <% @designation.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
-  <%#form_with scope: :subject, local: true do |s| %>
+	 <%= form_for(@designation, url: designation_index_path,remote: true,html: { style: "display:inline;" }) do |s|%>
+  
+    <ul class="errors"></ul>
+  
     <div class="field">
       <%= s.label "Department" %>
       <%= s.collection_select(:department_id, Department.where.not(active: 0), :id, :departmentName, { :prompt => 'Select a Department'}, { class: 'form-group mx-sm-3' }) %>

@@ -1,0 +1,245 @@
+
+<div class="container">
+  
+    <div class="borders">
+      <div class="stepwizard col-md-offset-3 headWizard">
+    <div class="stepwizard-row setup-panel">
+      <div class="stepwizard-step">
+        <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+        <p>Employee Deatil</p>
+      </div>
+      <div class="stepwizard-step">
+        <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+        <p>Empyee Adress</p>
+      </div>
+      <div class="stepwizard-step">
+        <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+        <p>Employee family detail</p>
+      </div>
+       <div class="stepwizard-step">
+        <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
+        <p>Employee eduction detail</p>
+      </div>
+    </div>
+  </div>
+  
+  <%= form_with(model: @emp_master, url: emp_master_path, local: true) do |s| %>
+<div class="row setup-content" id="step-1">
+    
+    <div class="col-md-12">
+      <span style="text-align: center;">  <h3> (Employee Detail)</h3></span>
+       <div class="col-md-4 left">
+          <div class="form-group">
+            <%= s.label :Employee_Name ,:class => "control-label"%>
+      <%= s.text_field :empName , :placeholder =>"Enter Employee Name",:class => "form-control"%>
+          </div>
+       </div>
+       <div class="col-md-4 left">
+          <div class="form-group">
+            <%= s.label :Gender ,:class => "control-label"%>
+            <%= s.radio_button :empGender, 'Male', :checked => true %> Male
+            <%= s.radio_button :empGender, 'Female', :checked => true %> female
+          </div>
+      </div>
+        <div class="col-md-4 left">
+          <div class="form-group">
+            <%= s.label :Employee_Contact_Number ,:class => "control-label"%>
+      <%= s.text_field :contactNumber , :placeholder =>"Enter Employee Contact Number",:class => "form-control"%>
+          </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="col-md-4 left">
+          <div class="form-group">
+            <%= s.label :Employee_Date_of_Birth ,:class => "control-label"%>
+            <%= s.date_field :dob, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="col-md-4 left">
+          <div class="form-group">
+            <%= s.label :Employee_Email_Address ,:class => "control-label"%>
+            <%= s.text_field :email , :placeholder =>"Enter Employee email Address",:class => "form-control"%>
+          </div>
+        </div>
+        
+    </div>
+    <div class="col-md-12">
+        <div class="col-md-4 left">
+          <div class="form-group">
+            <%= s.label :Employee_joining_Date ,:class => "control-label"%>
+            <%= s.date_field :joinDate, class: 'form-control' %>
+          </div>
+        </div>
+      <div class="col-md-4 left">
+           <div class="form-group">
+              <%= s.hidden_field :login_master_id, :value => session[:emp_id] %>
+            </div>
+      </div>
+    </div>
+        
+</div>
+<div class="row setup-content" id="step-2">
+      
+        <div class="col-md-12">
+           <span style="text-align: center;">  <h3> (Employee address)</h3></span></br>
+       </div>
+        <%= s.fields_for :emp_address do |addresses_form| %>
+    <div class="col-md-12">
+        
+        <div class="col-md-4 left">
+          <div class="form-group">
+            <%= addresses_form.label :Currunt_Addrees, :class => "control-label"%>
+            <%= addresses_form.text_area :currentAddress , :placeholder =>"Adrees",:class => "form-control"%>
+          </div>
+        </div>
+        <div class="col-md-2 left">
+          <div class="form-group">
+            <%= addresses_form.label :Landmark, :class => "control-label"%>
+            <%= addresses_form.text_field :landmark , :placeholder =>"Landmark",:class => "form-control"%>
+          </div>
+        </div>
+    <div class="col-md-2 left">
+          <div class="form-group">
+            <%= addresses_form.label :City, :class => "control-label"%>
+            <%= addresses_form.text_field :city , :placeholder =>"City",:class => "form-control"%>
+          </div>
+        </div>
+        <div class="col-md-2 left">
+          <div class="form-group">
+            <%= addresses_form.label :District, :class => "control-label"%>
+            <%= addresses_form.text_field :district , :placeholder =>"District",:class => "form-control"%>
+          </div>
+        </div>
+        <div class="col-md-2 left">
+          <div class="form-group">
+            <%= addresses_form.label :State, :class => "control-label"%>
+            <%= addresses_form.text_field :state , :placeholder =>"State",:class => "form-control"%>
+          </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        
+        <div class="col-md-4 left">
+          <div class="form-group">
+            <%= addresses_form.label :Permenent_Addrees, :class => "control-label"%>
+            <%= addresses_form.text_area :perAddress , :placeholder =>"Permenent Addrees",:class => "form-control"%>
+          </div>
+        </div>
+        <div class="col-md-2 left">
+          <div class="form-group">
+            <%= addresses_form.label :Landmark, :class => "control-label"%>
+            <%= addresses_form.text_field :pLandmark , :placeholder =>"Landmark",:class => "form-control"%>
+          </div>
+        </div>
+        <div class="col-md-2 left">
+          <div class="form-group">
+            <%= addresses_form.label :City, :class => "control-label"%>
+            <%= addresses_form.text_field :pcity , :placeholder =>"City",:class => "form-control"%>
+          </div>
+        </div>
+        <div class="col-md-2 left">
+          <div class="form-group">
+            <%= addresses_form.label :District, :class => "control-label"%>
+            <%= addresses_form.text_field :pdistrict , :placeholder =>"District",:class => "form-control"%>
+          </div>
+        </div>
+        <div class="col-md-2 left">
+          <div class="form-group">
+            <%= addresses_form.label :State, :class => "control-label"%>
+            <%= addresses_form.text_field :pState , :placeholder =>"State",:class => "form-control"%>
+          </div>
+        </div>
+        <div class="col-md-4 left">
+           <div class="form-group">
+              <%= addresses_form.hidden_field :login_master_id, :value => session[:emp_id] %>
+            </div>
+      </div>
+    </div>
+        
+      <%end%>
+</div>
+<div class="row setup-content" id="step-3">
+      
+      <div class="col-md-12">
+        <span style="text-align: center;">  <h3> (Employee family member)</h3></span></br>
+      </div>
+      <%= s.fields_for :emp_family do |family_form| %>
+
+      <div class="col-md-12">
+         
+        <div class="col-md-3 left">
+          <div class="form-group">
+            <%= family_form.label :Name_of_family_member, :class => "control-label"%>
+            <%= family_form.text_field :name , :id => "name",:placeholder =>"Name",:class => "form-control"%>
+          </div>
+        </div>
+        <div class="col-md-3 left">
+          <div class="form-group">
+            <%= family_form.label :Relation, :class => "control-label"%>
+            <%= family_form.text_field :relation, :id => "relation", :placeholder =>"Relation",:class => "form-control"%>
+          </div>
+        </div>
+        <div class="col-md-3 left">
+          <div class="form-group">
+            <%= family_form.label :Date_of_Birth ,:class => "control-label"%>
+            <%= family_form.date_field :dob,:id => "dob", class: 'form-control' %>
+          </div>
+        </div>
+        <div class="col-md-3 left">
+           <div class="form-group">
+              <%= family_form.hidden_field :login_master_id, :value => session[:emp_id] %>
+            </div>
+      </div>
+        
+      </div>
+    <%end%>
+</div>
+<div class="row setup-content" id="step-4">
+            <div class="col-md-12">
+               <span style="text-align: center;">  <h3> (Employee Eduction details)</h3></span></br>
+            </div>
+      <%= s.fields_for :emp_academic_profile do |education_form| %>
+      <div class="col-md-12">
+        <div class="col-md-3 left">
+          <div class="form-group">
+            <%= education_form.label :Course_and_degree_name , :class => "control-label"%>
+            <%= education_form.text_field :course , :id => "course",:placeholder =>"course and degree name",:class => "form-control"%>
+          </div>
+        </div>
+        <div class="col-md-3 left">
+          <div class="form-group">
+            <%= education_form.label :year, :class => "control-label"%>
+            <%= education_form.text_field :year , :id => "year",:placeholder =>"year only",:class => "form-control"%>
+          </div>
+        </div>
+
+        <div class="col-md-3 left">
+          <div class="form-group">
+            <%= education_form.label :percentage, :class => "control-label"%>
+            <%= education_form.text_field :percentage  , :id => "percentage",:placeholder =>"enter percentage and cgpa",:class => "form-control"%>
+          </div>
+        </div>
+        
+        <div class="col-md-3 left">
+          <div class="form-group">
+            <%= education_form.label :Univecity_and_Bord_name , :class => "control-label"%>
+            <%= education_form.text_field :univercityBorad  , :id => "univercityBorad",:placeholder =>"enter univercity and Bord",:class => "form-control"%>
+          </div>
+        </div>
+        <div class="col-md-3 left">
+           <div class="form-group">
+              <%= education_form.hidden_field :login_master_id, :value => session[:emp_id] %>
+            </div>
+      </div>
+      </div>
+       <%end%>
+    </div>
+        <div class="col-md-12">
+          <%=s.submit%>
+        </div>  
+  </div>
+ <%end%>
+  
+</div>
+
+</div>

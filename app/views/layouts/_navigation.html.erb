@@ -21,11 +21,19 @@
           <%= link_to "Designation",designation_index_path,:class => "dropdown-item" %>
         </div>
       </li>
-     <li class="nav-item">
-        <a class="nav-link" href="#">Employees <span class="sr-only">(current)</span></a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Employee 
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "Add Employee", emp_master_index_path,:class => "dropdown-item" %>
+          <%= link_to "Add Account Detail",  new_emp_accounting_profile_path  ,:class => "dropdown-item" %>
+          <%= link_to "Add Organization Detail", new_emp_oraganization_profile_path,:class => "dropdown-item" %>
+          <%= link_to "Add Employee Work Detail", new_emp_work_profile_path ,:class => "dropdown-item" %>
+        </div>
       </li>
        <li class="nav-item">
-        <a class="nav-link" href="#">Work <span class="sr-only">(current)</span></a>
+        <%= link_to "Work", emp_work_profile_index_path,:class => "nav-link" %>
       </li>
        <li class="nav-item">
         <a class="nav-link" href="#">report <span class="sr-only">(current)</span></a>

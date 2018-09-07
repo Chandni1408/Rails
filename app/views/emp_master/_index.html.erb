@@ -1,0 +1,20 @@
+<%@id = 1%>
+	<% @emp_master.each do |s|%>
+	<tr>
+		<td><%= @id%></td>
+		<td><%= link_to(s.empName,emp_master_path(s),remote: true) %></td>
+		<td><%= s.empGender%></td>
+		<td>
+			<%# link_to("Show","action show")%>
+			<%= link_to("payrol",emp_master_path(s),remote: true) %>
+			<%= link_to("Edit",edit_emp_master_path(s))%>
+			<%#link_to("Delete","subjects/delete",)%>
+			 <% if depended_dept(s) ==  nil %>
+			<%= link_to("Delete",emp_master_path(s),
+              method: :delete,
+              data: { confirm: 'Are you sure?' },remote: true)%>
+              <% end %>
+		</td>
+	</tr>
+	<%@id+=1%>
+	<% end%>

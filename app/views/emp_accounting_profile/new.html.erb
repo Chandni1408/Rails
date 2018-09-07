@@ -1,0 +1,84 @@
+<div class="container-fluid">
+  <div class="row up">
+    <div class="col-md-12">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">
+        <%= link_to 'Employee',emp_master_index_path%>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Add New Account DEtails 
+</li>
+  </ol>
+</nav>
+</div></div>
+  </div>
+<div class="row up">
+  <div class="col-md-12">
+    <div class="container-fluid">
+      <div class="alert alert-secondary" role="alert">
+        Add New Account DEtails 
+      </div>
+    <%= form_for(@account, url: emp_accounting_profile_index_path) do |s|%>
+    <div class="modal-body">
+        <ul class="errors"></ul>
+            <div class="form-row">
+                <div class="form-group mx-sm-3">
+                <%= s.label :Employee_Name%>
+                <%= s.collection_select(:emp_master_id, EmpMaster.all, :id, :empName, {:include_blank => 'Employee'}) %>
+
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group mx-sm-3">
+                <%= s.label :Pancard_Number %>
+                <%= s.text_field :pancardNum%><br>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group mx-sm-3">
+                <%= s.label :Adharcard_Number%>
+                <%= s.text_field :adharcardNum%><br>
+                </div>
+            </div>
+             <div class="form-row">
+                <div class="form-group mx-sm-3">
+                <%= s.label :Bank_Account_Number %>
+                <%= s.text_field :bankAccountNum%><br>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group mx-sm-3">
+                <%= s.label :Ifcc%>
+                <%= s.text_field :ifcc%><br>
+                </div>
+            </div>
+             <div class="form-row">
+                <div class="form-group mx-sm-3">
+                <%= s.label :Pf_Number %>
+                <%= s.text_field :pfNumber%><br>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group mx-sm-3">
+                <%= s.label :Insurance_Referance%>
+                <%= s.text_field :insuranceReferance%><br>
+                </div>
+            </div>
+
+            <div>
+                <%= s.hidden_field :login_master_id, :value => session[:emp_id] %>
+            </div>
+            <div class="modal-footer">
+                <%= s.submit class: "btn btn-primary" %>
+                <%= link_to "Cancel", "", class: "btn", data: {dismiss: "modal"} %>
+            </div>
+    </div>
+   
+  <%end%>
+    
+ 

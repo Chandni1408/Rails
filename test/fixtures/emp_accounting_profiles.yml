@@ -1,0 +1,41 @@
+# == Schema Information
+#
+# Table name: emp_accounting_profiles
+#
+#  id                 :bigint(8)        not null, primary key
+#  pancardNum         :string
+#  adharcardNum       :string
+#  bankAccountNum     :string
+#  ifcc               :string
+#  pfNumber           :string
+#  insuranceReferance :string
+#  login_master_id    :bigint(8)
+#  emp_master_id      :bigint(8)
+#  active             :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pancardNum: MyString
+  adharcardNum: MyString
+  bankAccountNum: MyString
+  ifcc: MyString
+  pfNumber: MyString
+  insuranceReferance: MyString
+  login_master: one
+  emp_master: one
+  active: 1
+
+two:
+  pancardNum: MyString
+  adharcardNum: MyString
+  bankAccountNum: MyString
+  ifcc: MyString
+  pfNumber: MyString
+  insuranceReferance: MyString
+  login_master: two
+  emp_master: two
+  active: 1

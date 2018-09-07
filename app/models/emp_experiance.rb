@@ -23,4 +23,5 @@ class EmpExperiance < ApplicationRecord
   belongs_to :emp_master
   belongs_to :department
   belongs_to :designation
+  validates :organizationName,:organizationAddress,:joiningDate,:leavingDate,:leavingReason, presence: true
 end

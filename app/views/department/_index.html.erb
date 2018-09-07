@@ -1,0 +1,20 @@
+<%@id = 1%>
+		<% @department.each do |s|%>
+		<tr>
+			<td><%= @id%></td>
+			<td><%= s.departmentName%></td>
+			<td><%= s.remark%></td>
+			<td>
+				<%# link_to("Show","action show")%>
+				<%= link_to("Show",department_path(s), remote: true) %>
+				<%= link_to("Edit",edit_department_path(s),remote: true)%>
+				<%#link_to("Delete","subjects/delete",)%>
+				 <% if depended_dept(s) ==  nil %>
+				<%= link_to("Delete",department_path(s),
+	              method: :delete,
+	              data: { confirm: 'Are you sure?' },remote: true)%>
+	              <% end %>
+			</td>
+		</tr>
+		<%@id+=1%>
+		<% end%>

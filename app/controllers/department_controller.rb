@@ -2,6 +2,10 @@ class DepartmentController < ApplicationController
 
   def index
   	@department = Department.where.not(active: 0).sorted.paginate(:page => params[:page], :per_page => 5)
+          respond_to do |format|
+          format.html
+          format.json
+          end
   end
 
   def new

@@ -20,7 +20,7 @@
   Edit Department 
 </div>
 <div>
-	<%= form_for(@department, url: department_path) do |s|%>
+	<%= form_for(@department, url: department_path, remote: true) do |s|%>
 <%#form_with(model: @department, url: department_index_path,local: true) do |s| %>
   <%#form_with scope: :subject, local: true do |s| %>
     <% if @department.errors.any? %>

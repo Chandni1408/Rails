@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 	  	if emp && emp.active == 1
 	  		log_in(emp)
 	  		activity(emp.id)
-	  		redirect_to department_home_url(emp)
+	  		redirect_to department_index_path
 	  	else
 	      flash[:danger] = 'Invalid username/password combination' # Not quite right!
 	      redirect_to login_url
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
 
 	  			log = LoginActivity.new
 	  			log.login = Time.now
-	  			log.ipAddress = request.ip
+	  			log.ipAddress = request.env['X_FORWARDED_FOR']
 	  			log.login_master_id = id
 	  			log.save
 	  			session[:log_id] = LoginActivity.last.id

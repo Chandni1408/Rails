@@ -16,4 +16,5 @@
 class EmpFamily < ApplicationRecord
   belongs_to :login_master
   belongs_to :emp_master
+  validates :name,:relation,:dob, presence: true
 end

@@ -1,0 +1,19 @@
+<% @i = 1 %>
+	<% @designation.each do |s|%>
+	<tr>
+		<td><%= @i%></td>
+		<td><%= curent_dept(s).departmentName%></td>
+		<td><%= s.designationName%></td>
+		<td><%= s.remark%></td>
+		<td>
+			<%# link_to("Show","action show")%>
+			<%= link_to("Show",designation_path(s),remote: true) %>
+			<%= link_to("Edit",edit_designation_path(s),remote: true)%>
+			<%#link_to("Delete","subjects/delete",)%>
+			<%= link_to("Delete",designation_path(s),
+              method: :delete,
+              data: { confirm: 'Are you sure?' },remote: true)%>
+		</td>
+	</tr>
+	<% @i += 1%>
+	<% end%>

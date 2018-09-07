@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  monthName: MyString
+  workingDay: 1
+  overtime: 1.5
+  cl: 1
+  paidLeave: 1
+  presentDay: 1
+  grossSalary: 1
+  conveyance: 1
+  medicalAllounc: 1
+  travalingAllounce: 1
+  extraAllowance: 1
+  active: 1
+  login_master: one
+  emp_master: one
+
+two:
+  monthName: MyString
+  workingDay: 1
+  overtime: 1.5
+  cl: 1
+  paidLeave: 1
+  presentDay: 1
+  grossSalary: 1
+  conveyance: 1
+  medicalAllounc: 1
+  travalingAllounce: 1
+  extraAllowance: 1
+  active: 1
+  login_master: two
+  emp_master: two

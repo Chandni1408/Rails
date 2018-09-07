@@ -1,0 +1,84 @@
+<div class="container-fluid">
+  <div class="row up">
+    <div class="col-md-12">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">
+        <%= link_to 'Employee',emp_master_index_path%>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Add New Work Detail</li>
+  </ol>
+</nav>
+</div></div>
+  </div>
+<div class="row up">
+  <div class="col-md-12">
+    <div class="container-fluid">
+      <div class="alert alert-secondary" role="alert">
+        Add New Work Detail 
+      </div>
+    <%= form_for(@work, url:emp_work_profile_index_path , remote: true,html: { style: "display:inline;" }) do |s|%>
+    <div class="modal-body">
+        <ul class="errors"></ul>
+
+            <div class="form-row">
+                <div class="form-group mx-sm-3">
+                <%= s.label :Employee_Name%>
+                <%= s.collection_select(:emp_master_id, EmpMaster.all, :id, :empName, {:include_blank => 'Employee'}) %>
+
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group mx-sm-3">
+                <%= s.label :project_name %>
+                <%= s.text_field :project_name%><br>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group mx-sm-3">
+                <%= s.label :start_date%>
+                <%= s.date_field :start_date%><br>
+                </div>
+            </div>
+             <div class="form-row">
+                <div class="form-group mx-sm-3">
+                <%= s.label :end_date %>
+                <%= s.date_field :end_date%><br>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group mx-sm-3">
+                <%= s.label :target_date%>
+                <%= s.date_field :target_date%><br>
+                </div>
+            </div>
+             <div class="form-row">
+                <div class="form-group mx-sm-3">
+                <%= s.label :remark %>
+                <%= s.text_field :remark%><br>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group mx-sm-3">
+                <%= s.label :head%>
+                <%= s.text_field :head%><br>
+                </div>
+            </div>
+
+            <div>
+                <%= s.hidden_field :login_master_id, :value => session[:emp_id] %>
+            </div>
+            <div class="modal-footer">
+                <%= s.submit class: "btn btn-primary" %>
+                <%= link_to "Cancel", "", class: "btn", data: {dismiss: "modal"} %>
+            </div>
+    </div>
+   
+  <%end%>
+    
+ 

@@ -1,0 +1,39 @@
+<div id="index-emp">
+<div class="container-fluid">
+  <div class="row up">
+    <div class="col-md-12">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Employee</li>
+  </ol>
+</nav>
+</div></div>
+  </div>
+<div class="row up">
+  <div class="col-md-12">
+    <div class="container-fluid">
+      <div class="alert alert-secondary" role="alert">
+  Employee List 
+</div>
+<div class="table-responsive-sm">
+
+<table class="table table-bordered table-hover chandni">
+	<tr>
+	  <%= link_to 'Add new Employee', login_master_new_path,:class => "btn", remote: true %>
+    </tr>
+	<caption>List of Employee</caption>
+	<header>
+		<th>#</th>
+		<th>Employee Name</th>
+		<th>Gender </th>
+		<th>Action</th>
+	</header>
+	<tbody class="emp-index">
+		<%= render 'index'%>
+	</tbody>
+</table>
+</div>
+  <%= will_paginate @emp_master %>
+</div>

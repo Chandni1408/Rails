@@ -20,7 +20,8 @@
 #      rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
-  get 'emp_master/new'
+  get 'login_master/new'
+  get 'emp_payroll/index'
   #get 'designation/new'
   #get 'designation/index'
   #get 'department/index'
@@ -28,7 +29,11 @@ Rails.application.routes.draw do
     get 'home'
   end
   resources :designation
+  resources :emp_accounting_profile
+  resources :emp_oraganization_profile
+  resources :emp_work_profile
   resources :emp_master
+  get    '/deshboard/:id(.:format)',   to: 'dashboard#deshboard'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'

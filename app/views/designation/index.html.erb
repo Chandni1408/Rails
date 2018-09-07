@@ -1,3 +1,4 @@
+<div id= "index-designation">
 <div class="container-fluid">
   <div class="row up">
     <div class="col-md-12">
@@ -19,7 +20,7 @@
 <div class="table-responsive-sm">
 <table class="table table-bordered table-hover chandni">
 	<tr>
-	  <%= link_to 'Add new Designation', new_designation_path,:class => "btn" %>
+	  <%= link_to 'Add new Designation', new_designation_path,:class => "btn",remote: true %>
     </tr>
 	<caption>List of Designation</caption>
 	<header>
@@ -29,25 +30,10 @@
 		<th>Remark</th>
 		<th>Action</th>
 	</header>
-	<% @i = 1 %>
-	<% @designation.each do |s|%>
-	<tr>
-		<td><%= @i%></td>
-		<td><%= curent_dept(s).departmentName%></td>
-		<td><%= s.designationName%></td>
-		<td><%= s.remark%></td>
-		<td>
-			<%# link_to("Show","action show")%>
-			<%= link_to("Show",designation_path(s)) %>
-			<%= link_to("Edit",edit_designation_path(s))%>
-			<%#link_to("Delete","subjects/delete",)%>
-			<%= link_to("Delete",designation_path(s),
-              method: :delete,
-              data: { confirm: 'Are you sure?' })%>
-		</td>
-	</tr>
-	<% @i += 1%>
-	<% end%>
+  	<tbody class="product-index">
+      <%= render "index" %>
+    </tbody>
 </table>
+</div>
 </div>
 

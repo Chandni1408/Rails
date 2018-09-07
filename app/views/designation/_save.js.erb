@@ -1,0 +1,9 @@
+$("ul.errors").html("")
+<% if @designation.errors.any? %>
+	  <% @designation.errors.full_messages.each do |message| %>
+	    $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
+	  <% end %>
+	<% else %>
+	  	$(".index-designation").html("<%= escape_javascript(render 'index') %>")
+  		$("#designation-modal").modal("hide")
+<% end %>
